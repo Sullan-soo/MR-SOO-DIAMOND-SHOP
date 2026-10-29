@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#10121b">
+<title>FF GLORY | Cyber Control Panel</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="network-bg" aria-hidden="true"></div><video class="background-video" autoplay muted loop playsinline aria-hidden="true"><source src="background.mp4" type="video/mp4"></video><div class="video-shade" aria-hidden="true"></div><div class="sound-toggle" title="Background video is muted">🔇</div>
+<main class="app-shell">
+  <header class="topbar">
+    <a class="brand" href="#"><span class="logo">⚡</span><span>FF <b>GLORY</b></span></a>
+    <button id="logoutBtn" class="logout hidden">LOG OUT ↗</button>
+  </header>
+
+  <section id="loginView" class="login-view">
+    <div class="login-card">
+      <div class="brand login-brand"><span class="logo">⚡</span><span>FF <b>GLORY</b></span></div>
+      <h1>WELCOME BACK</h1>
+      <p class="subheading">Sign in to your Cyber Control Panel.</p>
+      <form id="loginForm">
+        <label for="username">USERNAME</label><input id="username" autocomplete="username" required maxlength="24" aria-label="Username">
+        <label for="password">PASSWORD</label><input id="password" type="password" autocomplete="current-password" required minlength="4" aria-label="Password">
+        <p id="loginError" class="error"></p>
+        <button class="gradient-button" type="submit">LOGIN</button>
+      </form>
+      <p class="create-line">New here? <button id="createAccount" class="link-button">Create account</button></p>
+      <p class="demo-note">FF GLORY MEMBER ACCESS</p>
+    </div>
+  </section>
+
+  <section id="dashboardView" class="hidden">
+    <header class="dashboard-header">
+      <button class="hamburger" id="menuBtn" aria-label="Open menu">☰</button>
+      <h2>BOT CONTROL<br>PANEL</h2>
+      <div class="header-actions"><button id="walletBtn" aria-label="Wallet">💰</button><button class="sound-small" aria-label="Muted">🔊</button></div>
+    </header>
+    <aside id="sideMenu" class="side-menu hidden">
+      <button data-scroll="welcomeCard">Home</button><button data-scroll="fundsCard">Add Funds</button><button data-scroll="diamondSection">Diamond Top-Up</button><button data-scroll="scannerSection">Scanner</button><button data-scroll="options">Options</button><button data-scroll="activityCard">Recent Activity</button><button id="sideLogout">Log out</button>
+    </aside>
+    <section class="welcome-card glass" id="welcomeCard">
+      <p class="eyebrow">CYBERNETIC COMMAND</p>
+      <h1>HELLO, <span id="helloName">PLAYER</span></h1>
+      <p>Free Fire diamonds, UID likes and wallet top-ups, all from one neon control center.</p>
+    </section>
+    <section class="funds-card glass" id="fundsCard">
+      <h2>ADD FUNDS</h2><p>How much do you want to add to your game account?</p>
+      <div class="amount-row"><button class="amount" data-amount="200">₹200</button><button class="amount" data-amount="500">₹500</button><button class="amount" data-amount="1000">₹1000</button></div>
+      <label for="amountInput">AMOUNT (₹)</label><input id="amountInput" type="number" min="1" max="100000" placeholder="Enter amount" inputmode="numeric">
+      <button id="continueBtn" class="gradient-button">CONTINUE</button><p id="topupMessage" class="notice">Choose an amount and press CONTINUE to show the payment QR.</p>
+      <div id="inlinePaymentQr" class="inline-payment-qr hidden" aria-live="polite"><h3>PAY USING UPI</h3><div class="payment-qr-wrap"><img class="payment-qr-image" src="payment-qr.jpg" alt="Payment QR for M Jothivel, UPI ID jothivel@fam"/><p class="payment-qr-name">M JOTHIVEL</p><p class="payment-qr-id">UPI ID: jothivel@fam</p><small>Open your UPI app and scan this QR. Confirm the recipient and amount in your payment app before paying.</small></div></div>
+    </section>
+    <section class="diamond-section glass" id="diamondSection">
+      <p class="eyebrow">DIAMOND TOP-UP</p><h2>Choose Your Pack</h2>
+      <div class="diamond-grid">
+        <article class="diamond-pack"><span>🌙</span><b>MONTHLY</b><strong>₹200</strong><button class="pack-button" data-pack="MONTHLY" data-price="200">SELECT PACK</button></article>
+        <article class="diamond-pack"><span>👑</span><b>5 WEEKLY VIP</b><strong>₹400</strong><button class="pack-button" data-pack="5 WEEKLY VIP" data-price="400">SELECT PACK</button></article>
+        <article class="diamond-pack"><span>💎</span><b>1000 DIAMOND</b><strong>₹600</strong><button class="pack-button" data-pack="1000 DIAMOND" data-price="600">SELECT PACK</button></article>
+        <article class="diamond-pack"><span>💠</span><b>5000 DIAMOND</b><strong>₹1000</strong><button class="pack-button" data-pack="5000 DIAMOND" data-price="1000">SELECT PACK</button></article>
+      </div><p id="packMessage" class="notice" aria-live="polite"></p>
+    </section>
+    <section class="scanner-section glass" id="scannerSection"><p class="eyebrow">PAYMENT QR</p><h2>Scan to Pay</h2><div class="payment-qr-wrap"><img class="payment-qr-image" src="payment-qr.jpg" alt="Payment QR for M Jothivel, UPI ID jothivel@fam"/><p class="payment-qr-name">M JOTHIVEL</p><p class="payment-qr-id">UPI ID: jothivel@fam</p><small>Scan this QR using your UPI payment app.</small></div></section>
+    <section class="stats-grid">
+      <article class="stat glass"><span>Bot Status</span><strong class="online">ONLINE</strong></article>
+      <article class="stat glass"><span>Servers</span><strong>24</strong></article>
+      <article class="stat glass"><span>Commands Today</span><strong>1,482</strong></article>
+      <article class="stat glass"><span>Latency</span><strong>28ms</strong></article>
+    </section>
+    <section class="options-section" id="options"><p class="eyebrow">OPTIONS</p>
+      <div class="options-grid">
+        <button class="option-card cyan" data-feature="Diamond Top-Up"><span class="option-icon">💎</span><b>Diamond Top-Up</b><small>Buy diamonds and passes</small></button>
+        <button class="option-card pink" data-feature="Send Likes"><span class="option-icon">👍</span><b>Send Likes</b><small>Boost a UID profile</small></button>
+        <button class="option-card teal" data-feature="My Orders"><span class="option-icon">🧾</span><b>My Orders</b><small>Payment history</small></button>
+        <button class="option-card orange" data-feature="Offers"><span class="option-icon">🎁</span><b>Offers</b><small>Cheaper packs</small></button>
+        <button class="option-card purple" data-feature="Bot Status"><span class="option-icon">🤖</span><b>Bot Status</b><small>Start, stop, restart</small></button>
+        <button class="option-card gold" data-feature="FF Glory"><span class="option-icon">🏆</span><b>FF Glory</b><small>2 and 4 lakh packs</small></button>
+        <button class="option-card violet" data-feature="Preferences"><span class="option-icon">🎛️</span><b>Preferences</b><small>Sound and look</small></button>
+        <button class="option-card blue" data-feature="Profile"><span class="option-icon">👤</span><b>Profile</b><small>Your account</small></button>
+        <button class="option-card lime" data-feature="Support"><span class="option-icon">💬</span><b>Support</b><small>Help and FAQ</small></button>
+      </div>
+    </section>
+    <section class="activity-card glass" id="activityCard"><h2>RECENT ACTIVITY</h2>
+      <div class="activity-row"><span>✅ System initialized</span><small>Now</small></div>
+      <div class="activity-row"><span>💎 Top-up gateway</span><small class="online">Online</small></div>
+    </section>
+    <footer>FF GLORY CYBER CONTROL PANEL</footer>
+  </section>
+</main>
+<dialog id="featureDialog"><button id="closeDialog" class="close">×</button><p class="eyebrow">FF GLORY</p><h2 id="dialogTitle">Feature</h2><p id="dialogText">Demo screen only.</p><button id="dialogOk" class="gradient-button">OK</button></dialog>
+<script src="app.js"></script>
+</body></html>
